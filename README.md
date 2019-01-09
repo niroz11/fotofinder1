@@ -18,4 +18,4 @@ Note The photo.js file must be the first script in your html so that your main.j
 
 # Screenshots
 
-![image](https://user-images.githubusercontent.com/34406483/50646722-03eb9e80-0f34-11e9-80dc-1a2f5c89981b.png)
+![image](localhost_8000_.png)
