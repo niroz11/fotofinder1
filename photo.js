@@ -23,10 +23,9 @@ class Photo {
     this[property] = value;
   }
 
+};
   
 
   
 
 	
-
-};

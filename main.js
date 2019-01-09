@@ -2,15 +2,15 @@ var title = document.querySelector('#input');
 var caption = document.querySelector('#caption');
 var addButton = document.querySelector('#add-button');
 var cardHolder = document.querySelector('.bottom-container');
-// var fileButton = document.querySelector('#button-choose');
 var fileButton = document.querySelector('#choose-input');
 var viewFav = document.querySelector('#view-fav');
 var searchInput = document.querySelector('#search-text')
 var searchButton = document.querySelector('#search-icon');
 var showButton = document.querySelector('.show-more-button');
 var photosArray = [];
-
 var likedPhotos = 0;
+
+
 
 
 
@@ -24,14 +24,12 @@ showButton.addEventListener('click',showMore);
 
 function addCard(){
   var file = window.URL.createObjectURL(fileButton.files[0]);
-  
   var photo = new Photo(title.value, caption.value, file);
   photosArray.push(photo);
   appendCard(photo);
   photo.saveToStorage(photosArray);
-  
 }; 
-
+  
 function appendCard(photo){
 
 var card = `<div class="card" id="${photo.id}">
@@ -44,17 +42,7 @@ var card = `<div class="card" id="${photo.id}">
         </div>
       </div>`
       cardHolder.innerHTML += card;
-}
-
-
-
-
-
-
-
-
-
-
+};
 
 window.onLoad = loaded();
 
@@ -83,10 +71,7 @@ function loaded(){
      updateLikedPhotos();
     
     }
-    
-  
 }
-
 
 function getPhotoById(id){
   for(var i=0; i<photosArray.length; i++){
@@ -123,6 +108,7 @@ function deleteCard(event){
   photo.saveToStorage(photosArray, likedPhotos);
 }
 
+
 function updateLikedPhotos(){
   if(likedPhotos == 0){
     viewFav.innerHTML = `No Favorite Photos`;
@@ -134,6 +120,7 @@ function updateLikedPhotos(){
     viewFav.innerHTML = `View ${likedPhotos} favorites`; 
   }
 }
+
 
 function loveCard(e){
   var element = e.target.closest(".card");
@@ -153,9 +140,8 @@ function loveCard(e){
    updateLikedPhotos();
    photo.updatePhoto("favorite", photo.favorite);
    photo.saveToStorage(photosArray,likedPhotos);
-   
-
 }
+
 
 function editCard(event){
   event.target.contentEditable = true;
@@ -164,7 +150,6 @@ function editCard(event){
 }
 
 function saveText(event){
-  
   var element = event.target.closest(".card");
   var id = element.id; 
   var photo = getPhotoById(id); 
@@ -175,7 +160,7 @@ console.log(event.target.innerText, "heyy")
     photo.updatePhoto("caption", event.target.innerText);
   }
   photo.saveToStorage(photosArray);
-
+  
 }
 
 function searchPhoto(){
@@ -213,6 +198,7 @@ function showFavPhotos(){
 }
 }; 
 
+
 function displayWelcomeNote(){
   if(photosArray.length === 0){
     cardHolder.innerHTML = `<h1 class="welcome-note"> Post Your photos</h1>`
@@ -220,6 +206,7 @@ function displayWelcomeNote(){
 };
 
 displayWelcomeNote();
+
 
 function showMore(){
   if(showButton.innerText === "Show More"){
@@ -238,6 +225,17 @@ function showMore(){
       });
   }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
