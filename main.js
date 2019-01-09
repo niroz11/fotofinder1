@@ -3,6 +3,7 @@ var caption = document.querySelector('#caption');
 var addButton = document.querySelector('#add-button');
 var cardHolder = document.querySelector('.bottom-container');
 var fileButton = document.querySelector('#button-choose');
+var viewFav = document.querySelector('#view-fav');
 var photosArray = [];
 var likedPhotos = 0;
 
@@ -66,11 +67,11 @@ function getPhotoById(id){
 }
 
 function manageCard(event){
-  console.log(event.target, "heyyy");
+  
  if(event.target.classList.contains('delete')){
   deleteCard(event);
- } else if(e.target.classList.contains('love')){
-      loveCard(e);
+ } else if(event.target.classList.contains('love')){
+      loveCard(event);
   } 
 };
 
@@ -99,6 +100,24 @@ function updateLikedPhotos(){
 }
 
 function loveCard(e){
+  var element = e.target.closest(".card");
+  var id = element.id; 
+  var photo = getPhotoById(id); 
+  var index = photosArray.indexOf(photo);
+  if(photo.favorite == true){
+    photo.favorite = false;
+    e.target.src="./images/favorite.svg";
+    likedPhotos--; 
+  } 
+  else {
+    photo.favorite = true;
+    e.target.src="./images/favorite-active.svg";
+    likedPhotos++;
+  }
+   
+   updateLikedPhotos();
+   photo.updatePhoto(photo.title,photo.caption,photo.file,photo.favorite);
+   photo.saveToStorage(photos);
 
 }
 
