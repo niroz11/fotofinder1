@@ -66,7 +66,6 @@
 <body>
   <main class="container">
     <header class="header">
-
       <div class="logo">
         <span class= "header-text">FOTO</span> <img src="./images/foto-finder-logo.svg" width="50px"><span class= "header-text">FINDER</span>
       </div>
@@ -77,22 +76,20 @@
     </header>
     <section class="top-container">
       <div class="input-boxes">
-        <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <form class="input-form">
+          <label for="input">Title</label>
+          <input class="input-box" id="input" type="text" name="title"><label for="caption">Caption</label>
+          <input class="input-box" id="caption" type="text" name="caption">
+        </form>
+        <div class="fileUpload">
+          
+          <input type="file" class="upload" />
+        </div>
+          
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
+          
+    
   
-    <input type="submit" value="Submit">
-  </form>
       </div>
     </section>
     <section class="bottom-container">3</section>
