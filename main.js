@@ -63,22 +63,26 @@ function getPhotoById(id){
 }
 
 function manageCard(event){
-  alert('hey')
-  if(event.target.classList.contains('delete-button')){
+  console.log(event.target, "heyyy");
+ if(event.target.classList.contains('delete')){
+  deleteCard(event);
+ }
+};
 
-    deleteCard(event);
-  }
-}
-
-function deleteCard(e){
-  var element = e.target.closest(".card");
-  var id = element.id; 
-  var photo = getPhotoById(id); 
-  var index = photos.indexOf(photo);  
-  photos.splice(index,1);
+function deleteCard(event){
+  var element = event.target.closest('.card');
+  var id = element.id;
+  var photo = getPhotoById(id);
+  var index = photosArray.indexOf(photo);
+  photosArray.splice(index,1);
   element.remove();
-  
+  photo.saveToStorage(photosArray);
 }
+
+
+
+
+
 
 
 
