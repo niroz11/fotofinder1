@@ -4,14 +4,17 @@ var addButton = document.querySelector('#add-button');
 var cardHolder = document.querySelector('.bottom-container');
 var fileButton = document.querySelector('#button-choose');
 var viewFav = document.querySelector('#view-fav');
+var searchInput = document.querySelector('#search-text')
+var searchButton = document.querySelector('#search-icon');
 var photosArray = [];
-var reader = new FileReader();
+
 var likedPhotos = 0;
 
 
 
 addButton.addEventListener('click',addCard);
 cardHolder.addEventListener('click', manageCard);
+searchInput.addEventListener('keyup',searchPhoto);
 
 
 
@@ -135,21 +138,37 @@ function loveCard(e){
 
 }
 
-function editCard(e){
+function editCard(event){
   event.target.contentEditable = true;
   event.target.addEventListener('blur',saveText);
   
 }
 
-function saveText(e){
+function saveText(event){
   
-  var element = e.target.closest(".card");
+  var element = event.target.closest(".card");
   var id = element.id; 
   var photo = getPhotoById(id); 
-  if(event.target.classList.contains)
+  if(event.target.classList.contains('title-edit')){
+console.log(event.target.innerText, "heyy")
+    photo.updatePhoto("title", event.target.innerText)
+  }else if(event.target.classList.contains('caption-edit')){
+    photo.updatePhoto("caption", event.target.innerText);
+  }
+  photo.saveToStorage(photosArray);
 
-  
-  
+}
+
+function searchPhoto(){
+  var searchText = searchInput.value;
+  var filteredPhotos = photosArray.filter(function(e){
+    if(e.title.includes(searchText) || e.caption.includes(searchText)){
+      return e;
+    }
+  })
+  filteredPhotos.forEach(function(e){
+    appendCard(e);
+  })
 }
 
 

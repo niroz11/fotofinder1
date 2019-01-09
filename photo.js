@@ -12,7 +12,7 @@ class Photo {
 		localStorage.setItem("photos",JSON.stringify(photosArray));
 		if(likedPhotos != null){
 
-		localStorage.setItem('likedPhotos', JSON.stringify(likedPhotos));
+		localStorage.setItem('likedPhotos', likedPhotos.toString());
 		}
 
 	}
