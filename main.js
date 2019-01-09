@@ -8,7 +8,7 @@ var photosArray = [];
 
 
 addButton.addEventListener('click',addCard);
-cardHolder.addEventListener('click', editCard);
+cardHolder.addEventListener('click', manageCard);
 
 
 
@@ -62,29 +62,22 @@ function getPhotoById(id){
   }
 }
 
-function editCard(){
-  
-  
-  if(event.target.classList.contains('editable')){
-    event.target.contentEditable = true;
-    event.target.addEventListener('focusout',saveText);
+function manageCard(event){
+  alert('hey')
+  if(event.target.classList.contains('delete-button')){
+
+    deleteCard(event);
   }
-  
-};
+}
 
-function saveText(){
-  var element = event.target.parentElement.parentElement;
-
-  var id = element.id;
-  console.log(id);
-  var photo = getPhotoById(id);
-
+function deleteCard(e){
+  var element = e.target.closest(".card");
+  var id = element.id; 
+  var photo = getPhotoById(id); 
+  var index = photos.indexOf(photo);  
+  photos.splice(index,1);
+  element.remove();
   
-  
-  if(event.target.classList.contains('title-edit')){
-    photo.updateContent(event.target.innerText,caption);
-    photo.saveToStorage(photosArray);
-  }
 }
 
 
