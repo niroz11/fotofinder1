@@ -10,9 +10,8 @@ class Photo {
 	saveToStorage(photosArray){
 		localStorage.setItem("photos",JSON.stringify(photosArray));
 	}
-	updateContent(title, caption){
-		this.title = title;
-		this.caption = caption;
+	deleteFromStorage(photosArray){
+		localStorage.setItem("photos",JSON.stringify(photosArray));
 	}
 
 	

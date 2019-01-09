@@ -4,6 +4,7 @@ var addButton = document.querySelector('#add-button');
 var cardHolder = document.querySelector('.bottom-container');
 var fileButton = document.querySelector('#button-choose');
 var photosArray = [];
+var likedPhotos = 0;
 
 
 
@@ -56,24 +57,6 @@ function loaded(){
 }
 
 
-
-
-
-
-// function loaded (){
-//   if(localStorage.getItem("photos") != null){
-//     photosArray = JSON.parse(localStorage.getItem("photos"));
-    
-//     photosArray = photosArray.map(function(e){
-//         return new Photo(e.title, e.caption, e.file);
-//     })
-//     photosArray.forEach(function(e){
-//       appendCard(e);
-//     }); 
-//   }
-
-// }
-
 function getPhotoById(id){
   for(var i=0; i<photosArray.length; i++){
     if(id == photosArray[i].id){
@@ -86,7 +69,9 @@ function manageCard(event){
   console.log(event.target, "heyyy");
  if(event.target.classList.contains('delete')){
   deleteCard(event);
- }
+ } else if(e.target.classList.contains('love')){
+      loveCard(e);
+  } 
 };
 
 function deleteCard(event){
@@ -96,10 +81,16 @@ function deleteCard(event){
   console.log(photo);
   var index = photosArray.indexOf(photo);
   console.log(index);
-  // photosArray.splice(index,1);
-  // element.remove();
-  // photo.saveToStorage(photosArray);
+  photosArray.splice(index,1);
+  element.remove();
+  photo.saveToStorage(photosArray);
 }
+
+function loveCard(e){
+
+}
+
+
 
 
 
