@@ -320,6 +320,41 @@ h1{
   text-align: center;
 }
 
+@media screen and (max-width: 1197px){
+  .buttons {
+    display: block;
+  }
+  .buttons button{
+    width:100%;
+  }
+  #view-fav{
+  margin-bottom:20px;
+    
+  }
+  .card{
+    width:28%;
+  }
+}
+
+@media screen and (max-width: 755px){
+  .container{
+  display: grid;
+  grid-template-rows: 120px 500px 1fr 80px;
+
+}
+  .header{
+    display: block;
+    text-align: center;
+    
+  }
+  .card{
+    width:40%;
+  }
+  .header-text {
+    font-size: 46px;
+}
+}
+
 
 
 

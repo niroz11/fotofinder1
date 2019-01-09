@@ -204,14 +204,18 @@ function showFavPhotos(){
     appendCard(e);
   }); 
   viewFav.innerHTML = "Show All Photos";
+} else if(viewFav.innerHTML == "Show All Photos"){
+    viewFav.innerHTML = `View ${likedPhotos} favorite`;
+    cardHolder.innerHTML = "";
+    photosArray.forEach(function(e){
+      appendCard(e);
+    });
 }
 }; 
 
 function displayWelcomeNote(){
   if(photosArray.length === 0){
     cardHolder.innerHTML = `<h1 class="welcome-note"> Post Your photos</h1>`
-  }else {
-
   }
 };
 
