@@ -1,58 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Fotofinder</title>
+   <link rel="stylesheet" href="normalize.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Foto-Finder</title>
 </head>
 <body>
-  
-<section class="top-container">
-  
-  <nav class="header">
-    <nav class="title">
-   <h1>FOTO <img src="./images/foto-finder-logo.svg" width="25px">FINDER</h1>
-  </nav>
-  
-  <nav class="search-box">
-    <input id="search-text" type="text" name="search-input" placeholder="search">
-    <i id="search-icon" class="fas fa-search"></i>
-  </nav>
-</nav>
-
-
-  <nav class="upload-section">
-    <form>
-  <p>Title</p>
-  <input class="input-box" id="input" type="text" name="title"> 
-</form>
-<form>
-  <p>Caption</p>
-  <input class="input-box" id="caption" type="text" name="caption">
-</form>
-<input type="file" name="file" id="button-choose" class="inputfile"/>
-
-
-</nav>
-<nav class="buttons">
-  
-  <button id="view-fav">No Favorite</button>
-  <button id="add-button">Add to album</button>
-</nav>
-
-  
-</section>
-<section class="bottom-container">
-  
-
-   
-  </div> 
-
-  
-</section>
-
-<script type="text/javascript" src="photo.js"></script>
-<script type="text/javascript" src="main.js"></script>
-
+  <main class="container">
+    <header class="header">
+      <div class="logo">
+        <span class= "header-text">FOTO</span> <img src="./images/foto-finder-logo.svg" width="50px"><span class= "header-text">FINDER</span>
+      </div>
+      <div class="search-bar">
+        <input type="text" name="search-box" placeholder="your search here" id="search-text">
+        <i id="search-icon" class="fas fa-search"></i>
+      </div>
+    </header>
+    <section class="top-container">
+      <div class="input-boxes">
+        <form class="input-form">
+          <label for="input">Title</label>
+          <input class="input-box" id="input" type="text" name="title">
+          <label for="caption">Caption</label>
+          <input class="input-box" id="caption" type="text" name="caption">
+          
+          <label class="choose-button" for="choose-input">
+          <input type="file" id="choose-input" accept="image/png, image/jpg">Choose File</label>
+        </form>
+        <section class="buttons">
+          <button id="view-fav">No Favorite</button>
+          <button id="add-button">Add to album</button>
+        </section>
+      </div>
+    </section>
+    <section class="bottom-container">
+    </section>
+    <section class="footer">
+      <h3 class="show-more-button">Show More</h3>
+    </section>
+    <script type="text/javascript" src="photo.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </main>
 </body>
 </html>
+  
+        
+          
+
+          
+    
+  
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
