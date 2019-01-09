@@ -174,7 +174,8 @@ function searchPhoto(){
 }; 
 
 function showFavPhotos(){
-  cardHolder.innerHTML = "";
+  if(viewFav.innerHTML = `View ${likedPhotos} favorite`){
+    cardHolder.innerHTML = "";
 
   var filteredPhotos = photosArray.filter(function(e){
     if(e.favorite === true){
@@ -184,16 +185,14 @@ function showFavPhotos(){
   filteredPhotos.forEach(function(e){
     appendCard(e);
   }); 
-  viewFav.innerHTML = "Show ALl Photos";
-  if(viewFav.innerHTML = "Show ALl Photos"){
-    viewFav.innerHTML = `View ${likedPhotos} favorite`;
-    photosArray.forEach(function(e){
-      appendCard(e);
-    })
-  }
-
-
+  viewFav.innerHTML = "Show All Photos";
 }
+}; 
+
+
+
+
+ 
 
 
 

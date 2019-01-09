@@ -1,4 +1,4 @@
-body {
+/*body {
   display: grid;
   grid-template-rows: 450px 1fr; 
   grid-template-areas: "top-container"
@@ -145,7 +145,101 @@ h1{
   width: 65px;
     height: 59px;
     margin-right: 10px;
+}*/
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
 }
+
+.container{
+  display: grid;
+  grid-template-rows: 80px 500px 1fr;
+
+}
+
+.header{
+  background-color: cyan;
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #3e2a35;
+
+}
+.header-text{
+  font-size: 50px;
+}
+.logo span{
+  color: #ffff;
+}
+
+.search-bar{
+  
+  padding:10px;
+}
+.search-bar input{
+  font-size: 30px;
+}
+#search-icon{
+  font-size: 30px;
+  
+}
+
+.top-container{
+  background-color: #cccc;
+}
+.bottom-container{
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
