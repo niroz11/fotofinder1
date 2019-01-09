@@ -54,6 +54,7 @@ p {
 .bottom-container {
   grid-area: "bottomcontainer";
   background-color: #c2b2b4;
+  padding: 10px;
 
 }
 

@@ -40,19 +40,39 @@ function appendCard(photo){
 
 window.onLoad = loaded();
 
-function loaded (){
-  if(localStorage.getItem("photos") != null){
-    photosArray = JSON.parse(localStorage.getItem("photos"));
-    
-    photosArray = photosArray.map(function(e){
-        return new Photo(e.title, e.caption, e.file);
-    })
-    photosArray.forEach(function(e){
-      appendCard(e);
-    }); 
+function loaded(){
+  var data = localStorage.getItem('photos');
+  if(data !== null){
+    data = JSON.parse(data); 
+    console.log(data)
+    for (var i =0; i<data.length; i++){
+      var photo = Object.assign(new Photo(), data[i]);
+      photosArray.push(photo);
+      appendCard(photo); 
+    }
+    // likedPhotos = parseInt(localStorage.getItem("likedPhotos")); 
+    //  updateLikedPhotos();
   }
-
 }
+
+
+
+
+
+
+// function loaded (){
+//   if(localStorage.getItem("photos") != null){
+//     photosArray = JSON.parse(localStorage.getItem("photos"));
+    
+//     photosArray = photosArray.map(function(e){
+//         return new Photo(e.title, e.caption, e.file);
+//     })
+//     photosArray.forEach(function(e){
+//       appendCard(e);
+//     }); 
+//   }
+
+// }
 
 function getPhotoById(id){
   for(var i=0; i<photosArray.length; i++){
@@ -73,10 +93,12 @@ function deleteCard(event){
   var element = event.target.closest('.card');
   var id = element.id;
   var photo = getPhotoById(id);
+  console.log(photo);
   var index = photosArray.indexOf(photo);
-  photosArray.splice(index,1);
-  element.remove();
-  photo.saveToStorage(photosArray);
+  console.log(index);
+  // photosArray.splice(index,1);
+  // element.remove();
+  // photo.saveToStorage(photosArray);
 }
 
 
