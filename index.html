@@ -98,15 +98,16 @@
     <section class="bottom-container">
       <h3 class="onload-message">Start uploading Photo
       </h3>
-      <div class="card" id="${photo.id}">
-    <div> <h1 class ="title editable title-edit">title</h1> </div>
-    <div> <img class="card-image" src="./images/cat.jpg"></div>
-    <div><p class="title editable caption-edit">${photo.caption}</p></div>
-    <div class="card-buttons">
-      <button class="delete-button"><img src="./images/delete.svg" class="delete"></button>
-      <button class="love-button"><img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love"></button>
-    </div>
-  </div>
+      <div class="card">
+        <p>Waterfall image</p>
+        <img src="./images/cat.jpg" class="card-image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. </p>
+        <div class="card-buttons">
+          <img src="./images/delete.svg">
+          <img src="./images/favorite.svg">
+        </div>
+      </div>
     </section>
     
   </main>
