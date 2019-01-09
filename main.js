@@ -23,11 +23,14 @@ showButton.addEventListener('click',showMore);
 
 
 function addCard(){
+  if(title.value === "" || caption.value === ""){
+    addButton.disabled = true;
+  } else {
   var file = window.URL.createObjectURL(fileButton.files[0]);
   var photo = new Photo(title.value, caption.value, file);
   photosArray.push(photo);
   appendCard(photo);
-  photo.saveToStorage(photosArray);
+  photo.saveToStorage(photosArray)};
 }; 
   
 function appendCard(photo){
@@ -198,14 +201,14 @@ function showFavPhotos(){
 }
 }; 
 
+// function displayWelcomeNote(){
+//   if(photosArray.length === 0){
+//     cardHolder.innerHTML = `<h1 class="welcome-note"> Post Your photos</h1>`
+//   }
+// };
 
-function displayWelcomeNote(){
-  if(photosArray.length === 0){
-    cardHolder.innerHTML = `<h1 class="welcome-note"> Post Your photos</h1>`
-  }
-};
+// displayWelcomeNote();
 
-displayWelcomeNote();
 
 
 function showMore(){

@@ -3,6 +3,10 @@
 *:before {
   box-sizing: border-box;
 }
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
 
 .container{
   display: grid;
@@ -34,6 +38,10 @@
 }
 #search-icon{
   font-size: 30px;
+  background-color: #c2b2b4;
+  padding: 6px;
+  border: none;
+  margin-left: -4px;
   
 }
 
@@ -72,13 +80,11 @@
 }
 
 .bottom-container{
-  background-color:#aa7243;
+  background-color:#bfb3b4;
   padding:30px;
-
   display: flex;
   flex-wrap: wrap;
   
-
 }
 
 .bottom-container h3{
@@ -97,6 +103,17 @@
   background: #5B4447;
   border: none;
   color: #FFFFFF;
+}
+.choose-button:hover{
+  background: #938284;
+}
+
+#view-fav:hover{
+   background: #938284;
+}
+
+#add-button:hover{
+  background: #938284;
 }
 
 #choose-input {
@@ -206,24 +223,12 @@
 }
 };
 
-@media screen(min-device-width: 320px) {
-  .container{
-  display: grid;
-  grid-template-rows: 150px 500px 1fr 80px;
+@media screen and (max-width: 320px){
+    .top-container {
+      background-color: red;
+}
+}
 
-}
-  .header{
-    display: block;
-    text-align: center;
-    
-  }
-  .card{
-    width:40%;
-  }
-  .header-text {
-    font-size: 46px;
-}
-}
 
 
 
