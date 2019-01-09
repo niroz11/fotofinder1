@@ -221,13 +221,18 @@ h1{
 }
 
 .bottom-container{
-  background-color:#5B4447 ;
+  background-color:#aa7243;
   padding:10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .bottom-container h3{
   color: #ffff;
   text-align: center;
+
 }
 
 .choose-button {
@@ -263,14 +268,33 @@ h1{
 }
 
 .card{
-  width:22%;
+  width:20%;
   background-color: #ffff;
+  margin-right: 50px;
+  margin-bottom: 50px;
 
 }
 
 .card-image{
   width:100%;
 }
+
+.delete{
+  width:40px;
+}
+
+.love{
+  width:40px;
+}
+
+.card-buttons{
+  background-color: #5B4447;
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  height:50px;
+}
+
 
 
 
