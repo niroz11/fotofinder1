@@ -161,6 +161,7 @@ console.log(event.target.innerText, "heyy")
 
 function searchPhoto(){
   var searchText = searchInput.value;
+  cardHolder.innerHTML = "";
   var filteredPhotos = photosArray.filter(function(e){
     if(e.title.includes(searchText) || e.caption.includes(searchText)){
       return e;
