@@ -7,8 +7,14 @@ class Photo {
 		this.id = new Date().getTime();
 
 	}
-	saveToStorage(photosArray){
+	saveToStorage(photosArray,likedPhotos){
+
 		localStorage.setItem("photos",JSON.stringify(photosArray));
+		if(likedPhotos != null){
+			
+		localStorage.setItem('likedPhotos', JSON.stringify(likedPhotos));
+		}
+
 	}
 	deleteFromStorage(photosArray){
 		localStorage.setItem("photos",JSON.stringify(photosArray));

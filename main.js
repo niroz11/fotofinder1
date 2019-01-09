@@ -5,6 +5,7 @@ var cardHolder = document.querySelector('.bottom-container');
 var fileButton = document.querySelector('#button-choose');
 var viewFav = document.querySelector('#view-fav');
 var photosArray = [];
+var reader = new FileReader();
 var likedPhotos = 0;
 
 
@@ -16,6 +17,7 @@ cardHolder.addEventListener('click', manageCard);
 
 function addCard(){
   var file = window.URL.createObjectURL(fileButton.files[0]);
+  
   var photo = new Photo(title.value, caption.value, file);
   photosArray.push(photo);
   appendCard(photo);
@@ -46,15 +48,21 @@ function loaded(){
   var data = localStorage.getItem('photos');
   if(data !== null){
     data = JSON.parse(data); 
-    console.log(data)
+    
     for (var i =0; i<data.length; i++){
       var photo = Object.assign(new Photo(), data[i]);
       photosArray.push(photo);
       appendCard(photo); 
     }
     likedPhotos = parseInt(localStorage.getItem("likedPhotos")); 
+    if(likedPhotos === null){
+      likedPhotos = 0;
+    }
      updateLikedPhotos();
-  }
+    
+    }
+    
+  
 }
 
 
@@ -84,7 +92,11 @@ function deleteCard(event){
   console.log(index);
   photosArray.splice(index,1);
   element.remove();
-  photo.saveToStorage(photosArray);
+  if(photo.favorite == true){
+    likedPhotos--;
+    updateLikedPhotos();
+  } 
+  photo.saveToStorage(photosArray, likedPhotos);
 }
 
 function updateLikedPhotos(){
@@ -114,10 +126,10 @@ function loveCard(e){
     e.target.src="./images/favorite-active.svg";
     likedPhotos++;
   }
-   
    updateLikedPhotos();
    photo.updatePhoto(photo.title,photo.caption,photo.file,photo.favorite);
-   photo.saveToStorage(photos);
+   photo.saveToStorage(photosArray,likedPhotos);
+   
 
 }
 
