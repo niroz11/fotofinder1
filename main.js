@@ -15,6 +15,7 @@ var likedPhotos = 0;
 addButton.addEventListener('click',addCard);
 cardHolder.addEventListener('click', manageCard);
 searchInput.addEventListener('keyup',searchPhoto);
+viewFav.addEventListener('click', showFavPhotos);
 
 
 
@@ -170,6 +171,28 @@ function searchPhoto(){
   filteredPhotos.forEach(function(e){
     appendCard(e);
   })
+}; 
+
+function showFavPhotos(){
+  cardHolder.innerHTML = "";
+
+  var filteredPhotos = photosArray.filter(function(e){
+    if(e.favorite === true){
+      return e;
+    }
+  });
+  filteredPhotos.forEach(function(e){
+    appendCard(e);
+  }); 
+  viewFav.innerHTML = "Show ALl Photos";
+  if(viewFav.innerHTML = "Show ALl Photos"){
+    viewFav.innerHTML = `View ${likedPhotos} favorite`;
+    photosArray.forEach(function(e){
+      appendCard(e);
+    })
+  }
+
+
 }
 
 
