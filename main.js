@@ -7,6 +7,7 @@ var fileButton = document.querySelector('#choose-input');
 var viewFav = document.querySelector('#view-fav');
 var searchInput = document.querySelector('#search-text')
 var searchButton = document.querySelector('#search-icon');
+var showButton = document.querySelector('.show-more-button');
 var photosArray = [];
 
 var likedPhotos = 0;
@@ -17,6 +18,7 @@ addButton.addEventListener('click',addCard);
 cardHolder.addEventListener('click', manageCard);
 searchInput.addEventListener('keyup',searchPhoto);
 viewFav.addEventListener('click', showFavPhotos);
+showButton.addEventListener('click',showMore);
 
 
 
@@ -30,27 +32,12 @@ function addCard(){
   
 }; 
 
-// function appendCard(photo){
-  
-  
-//   var card =  `<div class="card" id="${photo.id}">
-//     <div> <h1 class ="title editable title-edit">${photo.title}</h1> </div>
-//     <div> <img class="card-image" src="${photo.file}"></div>
-//     <div><p class="title editable caption-edit">${photo.caption}</p></div>
-//     <div class="card-buttons">
-//       <button class="delete-button"><img src="./images/delete.svg" class="delete"></button>
-//       <button class="love-button"><img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love"></button>
-//     </div>
-//   </div>`
-//   cardHolder.innerHTML += card;
-// }
 function appendCard(photo){
 
-var card = `<div class="card">
-        <p class ="title editable title-edit">Waterfall image</p>
-        <img src="./images/cat.jpg" class="card-image">
-        <p class="title editable caption-edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. </p>
+var card = `<div class="card" id="${photo.id}">
+        <p class ="title editable title-edit">${photo.title}</p>
+        <img src="${photo.file}" class="card-image">
+        <p class="title editable caption-edit">${photo.caption} </p>
         <div class="card-buttons">
           <img src="./images/delete.svg" class="delete">
           <img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love">
@@ -78,9 +65,17 @@ function loaded(){
     
     for (var i =0; i<data.length; i++){
       var photo = Object.assign(new Photo(), data[i]);
+      console.log(photo);
       photosArray.push(photo);
-      appendCard(photo); 
+      
+      
     }
+    var filtered = photosArray.slice(-10);
+      
+      filtered.forEach(function(e){
+        appendCard(e);
+      });
+
     likedPhotos = parseInt(localStorage.getItem("likedPhotos")); 
     if(likedPhotos === null){
       likedPhotos = 0;
@@ -211,6 +206,34 @@ function showFavPhotos(){
   viewFav.innerHTML = "Show All Photos";
 }
 }; 
+
+function displayWelcomeNote(){
+  if(photosArray.length === 0){
+    cardHolder.innerHTML = `<h1 class="welcome-note"> Post Your photos</h1>`
+  }else {
+
+  }
+};
+
+displayWelcomeNote();
+
+function showMore(){
+  if(showButton.innerText === "Show More"){
+    showButton.innerText = "Show Less";
+    cardHolder.innerHTML = "";
+    photosArray.forEach(function(e){
+      appendCard(e);
+    })
+
+  } else if(showButton.innerText === "Show Less"){
+    cardHolder.innerHTML = "";
+    var filtered = photosArray.slice(-10);
+      
+      filtered.forEach(function(e){
+        appendCard(e);
+      });
+  }
+}
 
 
 
