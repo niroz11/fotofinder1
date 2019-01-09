@@ -18,4 +18,4 @@ Note The photo.js file must be the first script in your html so that your main.j
 
 # Screenshots
 
-![Screenshot](localhost_8000_.png)
+![Screenshot](images/localhost_8000_.png)
