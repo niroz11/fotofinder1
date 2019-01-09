@@ -51,8 +51,8 @@ function loaded(){
       photosArray.push(photo);
       appendCard(photo); 
     }
-    // likedPhotos = parseInt(localStorage.getItem("likedPhotos")); 
-    //  updateLikedPhotos();
+    likedPhotos = parseInt(localStorage.getItem("likedPhotos")); 
+     updateLikedPhotos();
   }
 }
 
@@ -84,6 +84,18 @@ function deleteCard(event){
   photosArray.splice(index,1);
   element.remove();
   photo.saveToStorage(photosArray);
+}
+
+function updateLikedPhotos(){
+  if(likedPhotos == 0){
+    viewFav.innerHTML = `No Favorite Photos`;
+  } 
+  else if(likedPhotos == 1){
+    viewFav.innerHTML = `View ${likedPhotos} favorite`;
+  }
+  else{
+    viewFav.innerHTML = `View ${likedPhotos} favorites`; 
+  }
 }
 
 function loveCard(e){
