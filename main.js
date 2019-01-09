@@ -2,7 +2,8 @@ var title = document.querySelector('#input');
 var caption = document.querySelector('#caption');
 var addButton = document.querySelector('#add-button');
 var cardHolder = document.querySelector('.bottom-container');
-var fileButton = document.querySelector('#button-choose');
+// var fileButton = document.querySelector('#button-choose');
+var fileButton = document.querySelector('#choose-input');
 var viewFav = document.querySelector('#view-fav');
 var searchInput = document.querySelector('#search-text')
 var searchButton = document.querySelector('#search-icon');
@@ -29,20 +30,42 @@ function addCard(){
   
 }; 
 
+// function appendCard(photo){
+  
+  
+//   var card =  `<div class="card" id="${photo.id}">
+//     <div> <h1 class ="title editable title-edit">${photo.title}</h1> </div>
+//     <div> <img class="card-image" src="${photo.file}"></div>
+//     <div><p class="title editable caption-edit">${photo.caption}</p></div>
+//     <div class="card-buttons">
+//       <button class="delete-button"><img src="./images/delete.svg" class="delete"></button>
+//       <button class="love-button"><img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love"></button>
+//     </div>
+//   </div>`
+//   cardHolder.innerHTML += card;
+// }
 function appendCard(photo){
-  
-  
-  var card =  `<div class="card" id="${photo.id}">
-    <div> <h1 class ="title editable title-edit">${photo.title}</h1> </div>
-    <div> <img class="card-image" src="${photo.file}"></div>
-    <div><p class="title editable caption-edit">${photo.caption}</p></div>
-    <div class="card-buttons">
-      <button class="delete-button"><img src="./images/delete.svg" class="delete"></button>
-      <button class="love-button"><img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love"></button>
-    </div>
-  </div>`
-  cardHolder.innerHTML += card;
+
+var card = `<div class="card">
+        <p class ="title editable title-edit">Waterfall image</p>
+        <img src="./images/cat.jpg" class="card-image">
+        <p class="title editable caption-edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. </p>
+        <div class="card-buttons">
+          <img src="./images/delete.svg" class="delete">
+          <img src="./images/favorite${photo.favorite == true?'-active':''}.svg" class="love">
+        </div>
+      </div>`
+      cardHolder.innerHTML += card;
 }
+
+
+
+
+
+
+
+
 
 
 
