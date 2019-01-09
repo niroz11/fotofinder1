@@ -80,7 +80,9 @@ function manageCard(event){
   deleteCard(event);
  } else if(event.target.classList.contains('love')){
       loveCard(event);
-  } 
+  } else if(event.target.classList.contains('editable')){
+    editCard(event);
+  }
 };
 
 function deleteCard(event){
@@ -115,7 +117,7 @@ function loveCard(e){
   var element = e.target.closest(".card");
   var id = element.id; 
   var photo = getPhotoById(id); 
-  var index = photosArray.indexOf(photo);
+  
   if(photo.favorite == true){
     photo.favorite = false;
     e.target.src="./images/favorite.svg";
@@ -127,10 +129,27 @@ function loveCard(e){
     likedPhotos++;
   }
    updateLikedPhotos();
-   photo.updatePhoto(photo.title,photo.caption,photo.file,photo.favorite);
+   photo.updatePhoto("favorite", photo.favorite);
    photo.saveToStorage(photosArray,likedPhotos);
    
 
+}
+
+function editCard(e){
+  event.target.contentEditable = true;
+  event.target.addEventListener('blur',saveText);
+  
+}
+
+function saveText(e){
+  
+  var element = e.target.closest(".card");
+  var id = element.id; 
+  var photo = getPhotoById(id); 
+  if(event.target.classList.contains)
+
+  
+  
 }
 
 

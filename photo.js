@@ -11,7 +11,7 @@ class Photo {
 
 		localStorage.setItem("photos",JSON.stringify(photosArray));
 		if(likedPhotos != null){
-			
+
 		localStorage.setItem('likedPhotos', JSON.stringify(likedPhotos));
 		}
 
@@ -19,11 +19,8 @@ class Photo {
 	deleteFromStorage(photosArray){
 		localStorage.setItem("photos",JSON.stringify(photosArray));
 	}
-	updatePhoto(title,caption,file,favorite){
-    this.title = title;
-    this.caption = caption;
-    this.file = file;
-    this.favorite = favorite;
+	updatePhoto(property,value){
+    this[property] = value;
   }
 
   
