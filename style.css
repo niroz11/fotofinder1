@@ -155,7 +155,7 @@ h1{
 
 .container{
   display: grid;
-  grid-template-rows: 80px 500px 1fr;
+  grid-template-rows: 80px 500px 800px;
 
 }
 
@@ -213,10 +213,21 @@ h1{
 .input-box{
   height:50px;
   font-size: 30px;
+  margin-bottom:20px;
+}
+
+#caption{
+  margin-bottom: 40px;
 }
 
 .bottom-container{
-  background-color: red;
+  background-color:#5B4447 ;
+  padding:10px;
+}
+
+.bottom-container h3{
+  color: #ffff;
+  text-align: center;
 }
 
 .choose-button {
@@ -233,6 +244,22 @@ h1{
 
 #choose-input {
   display: none;
+}
+
+.buttons{
+  padding: 10px;
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button{
+  width:45%;
+  height:60px;
+  background: #5B4447;
+  color:#ffff;
+  border:none;
+  font-size: 30px;
 }
 
 
